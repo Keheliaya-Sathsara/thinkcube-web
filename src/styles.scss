@@ -1,1 +1,213 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Base styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  body {
+    @apply bg-tc-black text-tc-white overflow-x-hidden;
+  }
+
+  ::selection {
+    @apply bg-tc-orange text-tc-white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-tc-dark;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-tc-green rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-tc-orange;
+  }
+}
+
+/* Component styles */
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 bg-tc-green text-tc-white font-semibold text-sm uppercase tracking-wider rounded-none transition-all duration-300 hover:bg-tc-orange hover:scale-105;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-8 py-4 border-2 border-tc-white text-tc-white font-semibold text-sm uppercase tracking-wider rounded-none transition-all duration-300 hover:bg-tc-white hover:text-tc-black;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-8 py-4 border-2 border-tc-green text-tc-green font-semibold text-sm uppercase tracking-wider rounded-none transition-all duration-300 hover:bg-tc-green hover:text-tc-white;
+  }
+
+  .section-number {
+    @apply text-8xl md:text-9xl font-black text-tc-green/20 absolute -left-4 -top-8 select-none;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-tc-green to-tc-orange bg-clip-text text-transparent;
+  }
+
+  .nav-link {
+    @apply relative text-tc-white text-sm uppercase tracking-wider font-medium transition-colors duration-300 hover:text-tc-orange;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-tc-orange transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .card-hover {
+    @apply transition-all duration-500 hover:transform hover:-translate-y-2 hover:shadow-2xl;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 bg-transparent border-b-2 border-tc-gray text-tc-white placeholder-tc-gray focus:outline-none focus:border-tc-green transition-colors duration-300;
+  }
+}
+
+/* Animation utilities */
+@layer utilities {
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+  .animate-delay-500 {
+    animation-delay: 500ms;
+  }
+  .animate-delay-600 {
+    animation-delay: 600ms;
+  }
+  .animate-delay-700 {
+    animation-delay: 700ms;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+}
+
+/* Custom animations for scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Text cycling animation */
+.text-cycle-container {
+  position: relative;
+  height: 1.2em;
+  overflow: hidden;
+}
+
+.text-cycle-word {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: translateY(100%);
+  animation: wordCycle 12s infinite;
+}
+
+.text-cycle-word:nth-child(1) { animation-delay: 0s; }
+.text-cycle-word:nth-child(2) { animation-delay: 3s; }
+.text-cycle-word:nth-child(3) { animation-delay: 6s; }
+.text-cycle-word:nth-child(4) { animation-delay: 9s; }
+
+@keyframes wordCycle {
+  0%, 5% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  10%, 25% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  30%, 100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+/* Parallax effect */
+.parallax {
+  will-change: transform;
+}
+
+/* Magnetic button effect */
+.magnetic-btn {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Noise texture overlay */
+.noise-overlay::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.02;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}

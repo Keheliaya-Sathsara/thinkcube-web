@@ -1,0 +1,82 @@
+<section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-tc-black">
+  <!-- Background Gradient Shapes -->
+  <div class="absolute inset-0 overflow-hidden">
+    <!-- Animated gradient circles -->
+    <div class="absolute top-1/4 -left-20 w-96 h-96 bg-tc-green/20 rounded-full blur-3xl animate-float"></div>
+    <div class="absolute bottom-1/4 -right-20 w-80 h-80 bg-tc-orange/20 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-tc-green/5 rounded-full blur-3xl"></div>
+    
+    <!-- Grid pattern overlay -->
+    <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:100px_100px]"></div>
+  </div>
+
+  <!-- Section Number -->
+  <span class="section-number hidden lg:block">01</span>
+
+  <!-- Content -->
+  <div class="container mx-auto px-6 lg:px-12 relative z-10 pt-20">
+    <div class="max-w-5xl mx-auto">
+      <!-- Small Label -->
+      <div class="flex items-center gap-3 mb-8 animate-fade-in">
+        <span class="w-12 h-px bg-tc-green"></span>
+        <span class="text-tc-green text-sm uppercase tracking-widest font-medium">Evangelists of Digital Life</span>
+      </div>
+
+      <!-- Main Heading with Cycling Text -->
+      <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-tc-white leading-tight mb-6">
+        <span class="block animate-fade-in-up">Creating Cloud</span>
+        <span class="block animate-fade-in-up animate-delay-200">Services for</span>
+        <span class="block relative">
+          <span class="text-cycle-container inline-block">
+            @for (word of cyclingWords; track word; let i = $index) {
+              <span 
+                class="text-cycle-word text-tc-orange"
+                [class.opacity-100]="i === currentWordIndex()"
+                [class.translate-y-0]="i === currentWordIndex()">
+                {{ word }}
+              </span>
+            }
+          </span>
+        </span>
+      </h1>
+
+      <!-- Subheading -->
+      <p class="text-lg md:text-xl text-tc-gray max-w-2xl mt-8 leading-relaxed animate-fade-in-up animate-delay-400">
+        We believe in creating cloud digital services that help the world move beyond. 
+        Building products that bring solutions and helping clients take concepts to the cloud.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 mt-12 animate-fade-in-up animate-delay-600">
+        <a 
+          href="#about" 
+          (click)="scrollToSection('about')"
+          class="btn-primary">
+          Discover More
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+        <a 
+          href="#contact" 
+          (click)="scrollToSection('contact')"
+          class="btn-secondary">
+          Get in Touch
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 animate-bounce-slow">
+    <span class="text-tc-gray text-xs uppercase tracking-widest">Scroll</span>
+    <div class="w-px h-16 bg-gradient-to-b from-tc-green to-transparent"></div>
+  </div>
+
+  <!-- Side Text -->
+  <div class="hidden lg:flex absolute right-8 top-1/2 -translate-y-1/2 flex-col items-center gap-4">
+    <div class="w-px h-24 bg-tc-gray/30"></div>
+    <span class="text-tc-gray text-xs uppercase tracking-widest transform -rotate-90 origin-center whitespace-nowrap">Est. 2019</span>
+    <div class="w-px h-24 bg-tc-gray/30"></div>
+  </div>
+</section>

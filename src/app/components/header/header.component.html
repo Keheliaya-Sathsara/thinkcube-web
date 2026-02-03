@@ -1,0 +1,85 @@
+<header 
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+  [class.bg-tc-black]="isScrolled()"
+  [class.backdrop-blur-md]="isScrolled()"
+  [class.shadow-lg]="isScrolled()"
+  [class.py-4]="!isScrolled()"
+  [class.py-3]="isScrolled()">
+  
+  <nav class="container mx-auto px-6 lg:px-12">
+    <div class="flex items-center justify-between">
+      <a href="#home" (click)="scrollToSection('#home')" class="relative z-10">
+        <img 
+          src="assets/images/Think Cube logo.png" 
+          alt="ThinkCube Logo" 
+          class="h-10 md:h-12 w-auto transition-transform duration-300 hover:scale-105" />
+      </a>
+
+      <div class="hidden md:flex items-center gap-8 lg:gap-12">
+        @for (link of navLinks; track link.label) {
+          <a 
+            [href]="link.href"
+            (click)="scrollToSection(link.href)"
+            class="nav-link">
+            {{ link.label }}
+          </a>
+        }
+      </div>
+
+      <div class="hidden md:block">
+        <a 
+          href="#contact" 
+          (click)="scrollToSection('#contact')"
+          class="btn-primary text-xs">
+          Get Started
+        </a>
+      </div>
+
+      <button 
+        (click)="toggleMobileMenu()"
+        class="md:hidden relative z-10 p-2 text-tc-white focus:outline-none"
+        [attr.aria-expanded]="isMobileMenuOpen()"
+        aria-label="Toggle navigation menu">
+        <div class="w-6 h-5 relative flex flex-col justify-between">
+          <span 
+            class="w-full h-0.5 bg-current transition-all duration-300 origin-left"
+            [class.rotate-45]="isMobileMenuOpen()"
+            [class.translate-y-0]="isMobileMenuOpen()"></span>
+          <span 
+            class="w-full h-0.5 bg-current transition-all duration-300"
+            [class.opacity-0]="isMobileMenuOpen()"></span>
+          <span 
+            class="w-full h-0.5 bg-current transition-all duration-300 origin-left"
+            [class.-rotate-45]="isMobileMenuOpen()"
+            [class.-translate-y-0]="isMobileMenuOpen()"></span>
+        </div>
+      </button>
+    </div>
+  </nav>
+
+  <div 
+    class="fixed inset-0 bg-tc-black md:hidden transition-all duration-500 flex flex-col items-center justify-center"
+    [class.opacity-100]="isMobileMenuOpen()"
+    [class.pointer-events-auto]="isMobileMenuOpen()"
+    [class.opacity-0]="!isMobileMenuOpen()"
+    [class.pointer-events-none]="!isMobileMenuOpen()">
+    
+    <nav class="flex flex-col items-center gap-8">
+      @for (link of navLinks; track link.label; let i = $index) {
+        <a 
+          [href]="link.href"
+          (click)="scrollToSection(link.href)"
+          class="text-3xl font-semibold text-tc-white hover:text-tc-orange transition-colors duration-300"
+          [style.animation-delay.ms]="i * 100">
+          {{ link.label }}
+        </a>
+      }
+      <a 
+        href="#contact" 
+        (click)="scrollToSection('#contact')"
+        class="btn-primary mt-4">
+        Get Started
+      </a>
+    </nav>
+  </div>
+</header>
