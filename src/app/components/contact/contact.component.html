@@ -1,47 +1,47 @@
-<section id="contact" class="relative py-24 lg:py-32 bg-tc-dark overflow-hidden">
+<section id="contact" class="relative py-16 sm:py-20 md:py-24 lg:py-32 bg-tc-dark overflow-hidden">
   <!-- Background Elements -->
   <div class="absolute inset-0">
-    <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-tc-green/10 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"></div>
-    <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-tc-orange/10 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
+    <div class="absolute bottom-0 left-0 w-[300px] sm:w-[450px] md:w-[600px] h-[300px] sm:h-[450px] md:h-[600px] bg-tc-green/10 rounded-full blur-2xl sm:blur-3xl -translate-x-1/2 translate-y-1/2"></div>
+    <div class="absolute top-0 right-0 w-[200px] sm:w-[300px] md:w-[400px] h-[200px] sm:h-[300px] md:h-[400px] bg-tc-orange/10 rounded-full blur-2xl sm:blur-3xl translate-x-1/2 -translate-y-1/2"></div>
   </div>
 
   <!-- Section Number -->
-  <span class="section-number hidden lg:block">04</span>
+  <span class="section-number hidden md:block text-7xl md:text-8xl lg:text-9xl">04</span>
 
-  <div class="container mx-auto px-6 lg:px-12 relative z-10">
-    <div class="grid lg:grid-cols-2 gap-16 lg:gap-24">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+    <div class="grid lg:grid-cols-2 gap-10 sm:gap-12 md:gap-16 lg:gap-24">
       <!-- Left Content -->
       <div appScrollReveal [revealDirection]="'left'">
-        <div class="flex items-center gap-3 mb-6">
-          <span class="w-12 h-px bg-tc-orange"></span>
-          <span class="text-tc-orange text-sm uppercase tracking-widest font-medium">Contact Us</span>
+        <div class="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+          <span class="w-8 sm:w-12 h-px bg-tc-orange"></span>
+          <span class="text-tc-orange text-xs sm:text-sm uppercase tracking-wider sm:tracking-widest font-medium">Contact Us</span>
         </div>
         
-        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-tc-white leading-tight mb-8">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-tc-white leading-tight mb-4 sm:mb-6 md:mb-8">
           Let's Shape the
           <span class="text-gradient">Future</span>
           Together
         </h2>
         
-        <p class="text-tc-gray text-lg leading-relaxed mb-10">
+        <p class="text-tc-gray text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8 md:mb-10">
           Ready to transform your ideas into reality? Get in touch with us and let's 
           discuss how we can help your business grow and innovate.
         </p>
 
         <!-- Contact Info -->
-        <div class="space-y-6 mb-10">
+        <div class="space-y-4 sm:space-y-6 mb-6 sm:mb-8 md:mb-10">
           @for (info of contactInfo; track info.label) {
             <a 
               [href]="info.link"
-              class="flex items-center gap-4 group">
-              <div class="w-12 h-12 flex items-center justify-center bg-tc-green/10 text-tc-green transition-all duration-300 group-hover:bg-tc-green group-hover:text-tc-white">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              class="flex items-center gap-3 sm:gap-4 group">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-tc-green/10 text-tc-green transition-all duration-300 group-hover:bg-tc-green group-hover:text-tc-white">
+                <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" [attr.d]="info.icon"/>
                 </svg>
               </div>
               <div>
-                <span class="block text-tc-gray text-sm">{{ info.label }}</span>
-                <span class="text-tc-white font-medium group-hover:text-tc-green transition-colors duration-300">{{ info.value }}</span>
+                <span class="block text-tc-gray text-xs sm:text-sm">{{ info.label }}</span>
+                <span class="text-tc-white text-sm sm:text-base font-medium group-hover:text-tc-green transition-colors duration-300">{{ info.value }}</span>
               </div>
             </a>
           }
@@ -49,13 +49,13 @@
 
         <!-- Social Links -->
         <div>
-          <span class="text-tc-gray text-sm uppercase tracking-wider mb-4 block">Follow Us</span>
-          <div class="flex gap-4">
+          <span class="text-tc-gray text-xs sm:text-sm uppercase tracking-wider mb-3 sm:mb-4 block">Follow Us</span>
+          <div class="flex gap-3 sm:gap-4">
             @for (social of socialLinks; track social.name) {
               <a 
                 [href]="social.url"
                 [attr.aria-label]="social.name"
-                class="w-12 h-12 flex items-center justify-center border border-tc-gray/30 text-tc-gray hover:border-tc-green hover:text-tc-green hover:bg-tc-green/10 transition-all duration-300">
+                class="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center border border-tc-gray/30 text-tc-gray hover:border-tc-green hover:text-tc-green hover:bg-tc-green/10 transition-all duration-300">
                 @switch (social.icon) {
                   @case ('linkedin') {
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -86,9 +86,9 @@
 
       <!-- Right Content - Form -->
       <div appScrollReveal [revealDirection]="'right'">
-        <div class="bg-tc-black/50 border border-tc-gray/10 p-8 lg:p-10">
-          <h3 class="text-2xl font-bold text-tc-white mb-2">Send us a message</h3>
-          <p class="text-tc-gray mb-8">We'll get back to you within 24 hours.</p>
+        <div class="bg-tc-black/50 border border-tc-gray/10 p-5 sm:p-6 md:p-8 lg:p-10">
+          <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-tc-white mb-1 sm:mb-2">Send us a message</h3>
+          <p class="text-tc-gray text-sm sm:text-base mb-6 sm:mb-8">We'll get back to you within 24 hours.</p>
 
           @if (isSubmitted()) {
             <div class="bg-tc-green/10 border border-tc-green/30 p-6 text-center animate-fade-in">

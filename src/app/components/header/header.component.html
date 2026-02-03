@@ -3,24 +3,26 @@
   [class.bg-tc-black]="isScrolled()"
   [class.backdrop-blur-md]="isScrolled()"
   [class.shadow-lg]="isScrolled()"
-  [class.py-4]="!isScrolled()"
-  [class.py-3]="isScrolled()">
+  [class.py-3]="!isScrolled()"
+  [class.sm:py-4]="!isScrolled()"
+  [class.py-2]="isScrolled()"
+  [class.sm:py-3]="isScrolled()">
   
-  <nav class="container mx-auto px-6 lg:px-12">
+  <nav class="container mx-auto px-4 sm:px-6 lg:px-12">
     <div class="flex items-center justify-between">
       <a href="#home" (click)="scrollToSection('#home')" class="relative z-10">
         <img 
           src="assets/images/Think Cube logo.png" 
           alt="ThinkCube Logo" 
-          class="h-10 md:h-12 w-auto transition-transform duration-300 hover:scale-105" />
+          class="h-8 sm:h-10 md:h-12 w-auto transition-transform duration-300 hover:scale-105" />
       </a>
 
-      <div class="hidden md:flex items-center gap-8 lg:gap-12">
+      <div class="hidden md:flex items-center gap-4 lg:gap-8 xl:gap-12">
         @for (link of navLinks; track link.label) {
           <a 
             [href]="link.href"
             (click)="scrollToSection(link.href)"
-            class="nav-link">
+            class="nav-link text-xs lg:text-sm">
             {{ link.label }}
           </a>
         }
@@ -30,7 +32,7 @@
         <a 
           href="#contact" 
           (click)="scrollToSection('#contact')"
-          class="btn-primary text-xs">
+          class="btn-primary text-[10px] lg:text-xs px-4 lg:px-6 py-2 lg:py-3">
           Get Started
         </a>
       </div>
@@ -64,12 +66,12 @@
     [class.opacity-0]="!isMobileMenuOpen()"
     [class.pointer-events-none]="!isMobileMenuOpen()">
     
-    <nav class="flex flex-col items-center gap-8">
+    <nav class="flex flex-col items-center gap-6 sm:gap-8">
       @for (link of navLinks; track link.label; let i = $index) {
         <a 
           [href]="link.href"
           (click)="scrollToSection(link.href)"
-          class="text-3xl font-semibold text-tc-white hover:text-tc-orange transition-colors duration-300"
+          class="text-2xl sm:text-3xl font-semibold text-tc-white hover:text-tc-orange transition-colors duration-300"
           [style.animation-delay.ms]="i * 100">
           {{ link.label }}
         </a>
@@ -77,7 +79,7 @@
       <a 
         href="#contact" 
         (click)="scrollToSection('#contact')"
-        class="btn-primary mt-4">
+        class="btn-primary mt-4 text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4">
         Get Started
       </a>
     </nav>
