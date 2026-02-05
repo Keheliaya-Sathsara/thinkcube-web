@@ -1,4 +1,4 @@
-<footer class="bg-tc-black border-t border-tc-gray/10">
+<footer class="footer-theme border-t border-tc-gray/10">
   <!-- Main Footer -->
   <div class="container mx-auto px-4 sm:px-6 lg:px-12 py-10 sm:py-12 md:py-16">
     <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 md:gap-12">
@@ -10,7 +10,7 @@
             alt="ThinkCube Logo" 
             class="h-10 sm:h-12 w-auto">
         </a>
-        <p class="text-tc-gray text-sm sm:text-base leading-relaxed mb-4 sm:mb-6">
+        <p class="text-theme-muted text-sm sm:text-base leading-relaxed mb-4 sm:mb-6">
           Evangelists of Digital Life. We are an Information Technology Services Company 
           focused on transforming the business lifestyle of MSMEs, Corporates and Government 
           sector entities through cutting-edge technology solutions.
@@ -22,14 +22,14 @@
 
       <!-- Quick Links -->
       <div>
-        <h4 class="text-tc-white font-bold text-base sm:text-lg mb-4 sm:mb-6">Quick Links</h4>
+        <h4 class="text-theme font-bold text-base sm:text-lg mb-4 sm:mb-6">Quick Links</h4>
         <ul class="space-y-3 sm:space-y-4">
           @for (link of quickLinks; track link.label) {
             <li>
               <a 
                 [href]="link.href"
                 (click)="scrollToSection(link.href)"
-                class="text-tc-gray text-sm sm:text-base hover:text-tc-green transition-colors duration-300">
+                class="text-theme-muted text-sm sm:text-base hover:text-tc-green transition-colors duration-300">
                 {{ link.label }}
               </a>
             </li>
@@ -39,14 +39,14 @@
 
       <!-- Services -->
       <div>
-        <h4 class="text-tc-white font-bold text-base sm:text-lg mb-4 sm:mb-6">Services</h4>
+        <h4 class="text-theme font-bold text-base sm:text-lg mb-4 sm:mb-6">Services</h4>
         <ul class="space-y-3 sm:space-y-4">
           @for (service of services; track service) {
             <li>
               <a 
                 href="#services"
                 (click)="scrollToSection('#services')"
-                class="text-tc-gray text-sm sm:text-base hover:text-tc-green transition-colors duration-300">
+                class="text-theme-muted text-sm sm:text-base hover:text-tc-green transition-colors duration-300">
                 {{ service }}
               </a>
             </li>
@@ -56,14 +56,14 @@
 
       <!-- Products -->
       <div class="col-span-2 sm:col-span-1">
-        <h4 class="text-tc-white font-bold text-base sm:text-lg mb-4 sm:mb-6">Products</h4>
+        <h4 class="text-theme font-bold text-base sm:text-lg mb-4 sm:mb-6">Products</h4>
         <ul class="space-y-3 sm:space-y-4">
           @for (product of products; track product) {
             <li>
               <a 
                 href="#products"
                 (click)="scrollToSection('#products')"
-                class="text-tc-gray text-sm sm:text-base hover:text-tc-orange transition-colors duration-300">
+                class="text-theme-muted text-sm sm:text-base hover:text-tc-orange transition-colors duration-300">
                 {{ product }}
               </a>
             </li>
@@ -72,7 +72,7 @@
         
         <!-- Newsletter -->
         <div class="mt-6 sm:mt-8">
-          <h4 class="text-tc-white font-bold text-base sm:text-lg mb-3 sm:mb-4">Newsletter</h4>
+          <h4 class="text-theme font-bold text-base sm:text-lg mb-3 sm:mb-4">Newsletter</h4>
           <form (ngSubmit)="subscribeNewsletter()" class="flex flex-col gap-2 sm:gap-3">
             <input 
               type="email" 
@@ -93,7 +93,7 @@
   <div class="border-t border-tc-gray/10">
     <div class="container mx-auto px-4 sm:px-6 lg:px-12 py-4 sm:py-6">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p class="text-tc-gray text-xs sm:text-sm text-center sm:text-left">
+        <p class="text-theme-muted text-xs sm:text-sm text-center sm:text-left">
           &copy; 2019 - {{ currentYear }} thinkCube Systems (Pvt) Ltd. All rights reserved.
         </p>
         

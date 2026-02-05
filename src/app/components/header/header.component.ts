@@ -1,6 +1,7 @@
-import { Component, HostListener, signal } from '@angular/core';
+import { Component, HostListener, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-header',
@@ -10,8 +11,11 @@ import { RouterModule } from '@angular/router';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  private themeService = inject(ThemeService);
+  
   isScrolled = signal(false);
   isMobileMenuOpen = signal(false);
+  isDarkMode = this.themeService.currentTheme;
 
   navLinks = [
     { label: 'Home', href: '#home' },
@@ -33,6 +37,10 @@ export class HeaderComponent {
 
   closeMobileMenu(): void {
     this.isMobileMenuOpen.set(false);
+  }
+
+  toggleTheme(): void {
+    this.themeService.toggleTheme();
   }
 
   scrollToSection(sectionId: string): void {

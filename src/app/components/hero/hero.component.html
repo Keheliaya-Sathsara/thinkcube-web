@@ -1,4 +1,4 @@
-<section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-tc-black">
+<section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden section-light">
   <!-- Background Gradient Shapes -->
   <div class="absolute inset-0 overflow-hidden">
     <!-- Animated gradient circles - Responsive sizes -->
@@ -7,7 +7,7 @@
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[450px] md:w-[600px] h-[300px] sm:h-[450px] md:h-[600px] bg-tc-green/5 rounded-full blur-2xl sm:blur-3xl"></div>
     
     <!-- Grid pattern overlay -->
-    <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] sm:bg-[size:80px_80px] md:bg-[size:100px_100px]"></div>
+    <div class="absolute inset-0 grid-pattern"></div>
   </div>
 
   <!-- Section Number -->
@@ -23,7 +23,7 @@
       </div>
 
       <!-- Main Heading with Cycling Text -->
-      <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-tc-white leading-tight mb-4 sm:mb-6">
+      <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-theme leading-tight mb-4 sm:mb-6">
         <span class="block animate-fade-in-up">Creating Cloud</span>
         <span class="block animate-fade-in-up animate-delay-200">Services for</span>
         <span class="block relative">
@@ -41,7 +41,7 @@
       </h1>
 
       <!-- Subheading -->
-      <p class="text-sm sm:text-base md:text-lg lg:text-xl text-tc-gray max-w-2xl mt-4 sm:mt-6 md:mt-8 leading-relaxed animate-fade-in-up animate-delay-400">
+      <p class="text-sm sm:text-base md:text-lg lg:text-xl text-theme-muted max-w-2xl mt-4 sm:mt-6 md:mt-8 leading-relaxed animate-fade-in-up animate-delay-400">
         We believe in creating cloud digital services that help the world move beyond. 
         Building products that bring solutions and helping clients take concepts to the cloud.
       </p>
@@ -69,14 +69,14 @@
 
   <!-- Scroll Indicator -->
   <div class="absolute bottom-6 sm:bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 sm:gap-3 animate-bounce-slow">
-    <span class="text-tc-gray text-[10px] sm:text-xs uppercase tracking-widest">Scroll</span>
+    <span class="text-theme-muted text-[10px] sm:text-xs uppercase tracking-widest">Scroll</span>
     <div class="w-px h-10 sm:h-12 md:h-16 bg-gradient-to-b from-tc-green to-transparent"></div>
   </div>
 
   <!-- Side Text - Hidden on mobile, visible on tablet and up -->
   <div class="hidden md:flex absolute right-4 md:right-6 lg:right-8 top-1/2 -translate-y-1/2 flex-col items-center gap-3 md:gap-4">
     <div class="w-px h-16 md:h-20 lg:h-24 bg-tc-gray/30"></div>
-    <span class="text-tc-gray text-[10px] md:text-xs uppercase tracking-widest transform -rotate-90 origin-center whitespace-nowrap">Est. 2019</span>
+    <span class="text-theme-muted text-[10px] md:text-xs uppercase tracking-widest transform -rotate-90 origin-center whitespace-nowrap">Est. 2019</span>
     <div class="w-px h-16 md:h-20 lg:h-24 bg-tc-gray/30"></div>
   </div>
 </section>

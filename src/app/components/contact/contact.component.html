@@ -1,4 +1,4 @@
-<section id="contact" class="relative py-16 sm:py-20 md:py-24 lg:py-32 bg-tc-dark overflow-hidden">
+<section id="contact" class="relative py-16 sm:py-20 md:py-24 lg:py-32 section-dark overflow-hidden">
   <!-- Background Elements -->
   <div class="absolute inset-0">
     <div class="absolute bottom-0 left-0 w-[300px] sm:w-[450px] md:w-[600px] h-[300px] sm:h-[450px] md:h-[600px] bg-tc-green/10 rounded-full blur-2xl sm:blur-3xl -translate-x-1/2 translate-y-1/2"></div>
@@ -17,13 +17,13 @@
           <span class="text-tc-orange text-xs sm:text-sm uppercase tracking-wider sm:tracking-widest font-medium">Contact Us</span>
         </div>
         
-        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-tc-white leading-tight mb-4 sm:mb-6 md:mb-8">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-theme leading-tight mb-4 sm:mb-6 md:mb-8">
           Let's Shape the
           <span class="text-gradient">Future</span>
           Together
         </h2>
         
-        <p class="text-tc-gray text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8 md:mb-10">
+        <p class="text-theme-muted text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8 md:mb-10">
           Ready to transform your ideas into reality? Get in touch with us and let's 
           discuss how we can help your business grow and innovate.
         </p>
@@ -40,8 +40,8 @@
                 </svg>
               </div>
               <div>
-                <span class="block text-tc-gray text-xs sm:text-sm">{{ info.label }}</span>
-                <span class="text-tc-white text-sm sm:text-base font-medium group-hover:text-tc-green transition-colors duration-300">{{ info.value }}</span>
+                <span class="block text-theme-muted text-xs sm:text-sm">{{ info.label }}</span>
+                <span class="text-theme text-sm sm:text-base font-medium group-hover:text-tc-green transition-colors duration-300">{{ info.value }}</span>
               </div>
             </a>
           }
@@ -49,13 +49,13 @@
 
         <!-- Social Links -->
         <div>
-          <span class="text-tc-gray text-xs sm:text-sm uppercase tracking-wider mb-3 sm:mb-4 block">Follow Us</span>
+          <span class="text-theme-muted text-xs sm:text-sm uppercase tracking-wider mb-3 sm:mb-4 block">Follow Us</span>
           <div class="flex gap-3 sm:gap-4">
             @for (social of socialLinks; track social.name) {
               <a 
                 [href]="social.url"
                 [attr.aria-label]="social.name"
-                class="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center border border-tc-gray/30 text-tc-gray hover:border-tc-green hover:text-tc-green hover:bg-tc-green/10 transition-all duration-300">
+                class="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center border border-tc-gray/30 text-theme-muted hover:border-tc-green hover:text-tc-green hover:bg-tc-green/10 transition-all duration-300">
                 @switch (social.icon) {
                   @case ('linkedin') {
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -86,22 +86,22 @@
 
       <!-- Right Content - Form -->
       <div appScrollReveal [revealDirection]="'right'">
-        <div class="bg-tc-black/50 border border-tc-gray/10 p-5 sm:p-6 md:p-8 lg:p-10">
-          <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-tc-white mb-1 sm:mb-2">Send us a message</h3>
-          <p class="text-tc-gray text-sm sm:text-base mb-6 sm:mb-8">We'll get back to you within 24 hours.</p>
+        <div class="card-theme border p-5 sm:p-6 md:p-8 lg:p-10">
+          <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-theme mb-1 sm:mb-2">Send us a message</h3>
+          <p class="text-theme-muted text-sm sm:text-base mb-6 sm:mb-8">We'll get back to you within 24 hours.</p>
 
           @if (isSubmitted()) {
             <div class="bg-tc-green/10 border border-tc-green/30 p-6 text-center animate-fade-in">
               <svg class="w-16 h-16 mx-auto text-tc-green mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
               </svg>
-              <h4 class="text-xl font-bold text-tc-white mb-2">Message Sent!</h4>
-              <p class="text-tc-gray">Thank you for reaching out. We'll be in touch soon.</p>
+              <h4 class="text-xl font-bold text-theme mb-2">Message Sent!</h4>
+              <p class="text-theme-muted">Thank you for reaching out. We'll be in touch soon.</p>
             </div>
           } @else {
             <form (ngSubmit)="onSubmit()" class="space-y-6">
               <div>
-                <label class="block text-tc-gray text-sm mb-2">Full Name *</label>
+                <label class="block text-theme-muted text-sm mb-2">Full Name *</label>
                 <input 
                   type="text" 
                   [(ngModel)]="formData.name"
@@ -112,7 +112,7 @@
               </div>
 
               <div>
-                <label class="block text-tc-gray text-sm mb-2">Email Address *</label>
+                <label class="block text-theme-muted text-sm mb-2">Email Address *</label>
                 <input 
                   type="email" 
                   [(ngModel)]="formData.email"
@@ -123,7 +123,7 @@
               </div>
 
               <div>
-                <label class="block text-tc-gray text-sm mb-2">Company</label>
+                <label class="block text-theme-muted text-sm mb-2">Company</label>
                 <input 
                   type="text" 
                   [(ngModel)]="formData.company"
@@ -133,7 +133,7 @@
               </div>
 
               <div>
-                <label class="block text-tc-gray text-sm mb-2">Message *</label>
+                <label class="block text-theme-muted text-sm mb-2">Message *</label>
                 <textarea 
                   [(ngModel)]="formData.message"
                   name="message"
