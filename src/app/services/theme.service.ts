@@ -24,8 +24,8 @@ export class ThemeService {
       return savedTheme;
     }
     
-    // Default to dark theme (current design)
-    return 'dark';
+    // Default to light theme
+    return 'light';
   }
 
   private applyTheme(theme: Theme): void {

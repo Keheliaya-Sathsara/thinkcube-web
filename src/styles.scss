@@ -14,12 +14,21 @@
 
   /* Dark theme (default) */
   html.dark body {
-    @apply bg-tc-black text-tc-white overflow-x-hidden;
+    @apply bg-tc-black/80 text-tc-white overflow-x-hidden;
   }
 
   /* Light theme */
   html.light body {
-    @apply bg-white text-tc-dark overflow-x-hidden;
+    @apply bg-white/80 text-tc-dark overflow-x-hidden;
+  }
+
+  /* Root background for canvas animation */
+  html.dark {
+    background-color: #1a1a1a;
+  }
+
+  html.light {
+    background-color: #ffffff;
   }
 
   ::selection {
@@ -128,29 +137,29 @@
     @apply border-tc-gray text-tc-dark;
   }
 
-  /* Theme-aware section backgrounds */
+  /* Theme-aware section backgrounds - Semi-transparent for background animation */
   .section-dark {
-    @apply transition-colors duration-500;
+    @apply transition-colors duration-500 relative;
   }
 
   html.dark .section-dark {
-    @apply bg-tc-dark;
+    @apply bg-tc-dark/60;
   }
 
   html.light .section-dark {
-    @apply bg-tc-light-gray;
+    @apply bg-tc-light-gray/60;
   }
 
   .section-light {
-    @apply transition-colors duration-500;
+    @apply transition-colors duration-500 relative;
   }
 
   html.dark .section-light {
-    @apply bg-tc-black;
+    @apply bg-tc-black/60;
   }
 
   html.light .section-light {
-    @apply bg-white;
+    @apply bg-white/60;
   }
 
   /* Theme-aware text */
@@ -178,30 +187,31 @@
     @apply text-tc-gray;
   }
 
-  /* Theme-aware cards */
+  /* Theme-aware cards - Semi-transparent for background animation */
   .card-theme {
-    @apply transition-all duration-300;
+    @apply transition-all duration-300 backdrop-blur-sm;
   }
 
   html.dark .card-theme {
-    @apply bg-tc-dark border-tc-gray/20;
+    @apply bg-tc-dark/80 border-tc-gray/20;
   }
 
   html.light .card-theme {
-    @apply bg-white border-tc-gray/20 shadow-lg;
+    @apply bg-white/80 border-tc-gray/20 shadow-lg;
   }
 
   /* Footer theme */
+  /* Footer theme - Semi-transparent for background animation */
   .footer-theme {
     @apply transition-colors duration-500;
   }
 
   html.dark .footer-theme {
-    @apply bg-tc-black;
+    @apply bg-tc-black/95;
   }
 
   html.light .footer-theme {
-    @apply bg-tc-light-gray;
+    @apply bg-tc-light-gray/95;
   }
 
   /* Grid pattern for hero */

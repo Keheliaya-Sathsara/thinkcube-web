@@ -8,6 +8,7 @@ import { ProductsComponent } from '../../components/products/products.component'
 import { TestimonialsComponent } from '../../components/testimonials/testimonials.component';
 import { ContactComponent } from '../../components/contact/contact.component';
 import { FooterComponent } from '../../components/footer/footer.component';
+import { NetworkBackgroundComponent } from '../../components/network-background/network-background.component';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +22,8 @@ import { FooterComponent } from '../../components/footer/footer.component';
     ProductsComponent,
     TestimonialsComponent,
     ContactComponent,
-    FooterComponent
+    FooterComponent,
+    NetworkBackgroundComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
