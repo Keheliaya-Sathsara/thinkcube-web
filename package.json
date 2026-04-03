@@ -25,7 +25,7 @@
     "@fortawesome/free-brands-svg-icons": "^6.7.1",
     "@fortawesome/free-regular-svg-icons": "^6.7.1",
     "@fortawesome/free-solid-svg-icons": "^6.7.1",
-    "@netlify/angular-runtime": "^2.4.0",
+    "@netlify/angular-runtime": "^3.0.1",
     "@tailwindcss/postcss": "^4.0.12",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
