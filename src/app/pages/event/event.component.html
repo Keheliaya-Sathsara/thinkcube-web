@@ -1,0 +1,158 @@
+<section class="relative min-h-screen flex flex-col justify-center px-4 md:px-8 items-center overflow-hidden">
+  <div class="absolute inset-0 z-10 bg-black opacity-65"></div>
+  <div class="absolute inset-0 z-0">
+    <div
+      class="h-full w-full bg-fixed bg-cover bg-center bg-no-repeat"
+      style="background-image: url('/images/event/eventpages/Hallowen-night/Halloween-banner.png')"
+    ></div>
+  </div>
+  <!-- <div class="z-20 w-full px-4 md:px-8 text-center md:text-left relative py-16 md:py-0">
+    <h1
+      class="text-4xl sm:text-3xl md:text-[40px] lg:text-[72px] text-white font-bold mb-2 md:mb-4"
+    >
+      
+    </h1>
+    <p class="text-[14px] text-sm md:text-base text-white max-w-md mx-auto md:mx-0">
+      
+    </p>
+  </div> -->
+  <div class="z-20 text-center md:text-left w-full px-4 md:px-0">
+    <h1
+      class="text-3xl md:text-[40px] lg:text-[72px] text-white font-bold mb-4 md:absolute md:bottom-[25%] md:left-[10%]"
+    >
+      Events
+    </h1>
+    <p class="text-sm md:text-base text-white md:absolute md:bottom-[15%] md:left-[10%] max-w-md">
+      Innovating solutions for efficient infrastructure and seamless logistics, ensuring the smooth movement of goods
+      and people worldwide.
+    </p>
+  </div>
+</section>
+
+<section class="pt-6 md:pt-8 px-4 md:px-8 lg:px-16 bg-black">
+  <div class="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
+    <!-- Tab buttons - stacked on mobile, side by side on desktop -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8">
+      <button
+        (click)="setActiveTab('past')"
+        class="cursor-pointer text-lg font-medium transition-colors"
+        [ngClass]="activeTab === 'past' ? 'text-white' : 'text-gray-400'"
+      >
+        Past Events
+      </button>
+      <button
+        (click)="setActiveTab('upcoming')"
+        class="cursor-pointer text-lg font-medium transition-colors"
+        [ngClass]="activeTab === 'upcoming' ? 'text-white' : 'text-gray-400'"
+      >
+        Upcoming Events
+      </button>
+    </div>
+
+    <!-- Filter buttons - wrapping appropriately for different screen sizes -->
+    <div class="flex flex-wrap gap-2 md:gap-3 py-4 md:py-6">
+      <button
+        (click)="setFilter('all')"
+        class="cursor-pointer px-3 py-1 md:px-4 md:py-2 text-xs md:text-sm font-medium rounded-full transition-colors"
+        [ngClass]="activeFilter === 'all' ? 'bg-red-600 text-white' : 'bg-gray-700 text-gray-300'"
+      >
+        All
+      </button>
+      <button
+        *ngFor="let type of eventTypes"
+        (click)="setFilter(type)"
+        class="cursor-pointer px-3 py-1 md:px-4 md:py-2 text-xs md:text-sm font-medium rounded-full transition-colors"
+        [ngClass]="activeFilter === type ? 'bg-red-600 text-white' : 'bg-gray-700 text-gray-300'"
+      >
+        {{ type }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Event cards -->
+  <div class="grid gap-4 md:gap-6 mt-4">
+    <div *ngIf="filteredEvents.length === 0" class="text-white text-center py-10">
+      No events found for the selected filter.
+    </div>
+
+    <div
+      *ngFor="let event of filteredEvents"
+      class="bg-[#151515] rounded-xl md:rounded-2xl overflow-hidden flex flex-col md:flex-row h-auto md:h-64 cursor-pointer shadow-md hover:shadow-lg transition-shadow duration-300"
+      [routerLink]="['/eventflow', event.link]"
+      (click)="scrollToTop()"
+    >
+      <!-- Image section - full width on mobile, left column on desktop -->
+      <div class="relative md:w-2/5 md:h-full flex items-center p-4">
+        <div class="w-full h-full relative">
+          <!-- Logo -->
+          <!-- <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <img [src]="event.logoUrl" alt="Logo" class="w-32 h-32 md:w-40 md:h-40 object-contain" />
+          </div> -->
+
+          <!-- Image -->
+          <img
+            [src]="event.imageUrl"
+            [alt]="event.title"
+            class="w-full opacity-40 object-cover h-40 md:h-full rounded-lg"
+          />
+        </div>
+      </div>
+
+      <!-- Content section - below image on mobile, right column on desktop -->
+      <div
+        class="p-4 sm:p-5 md:p-6 w-full md:w-3/5 flex flex-col justify-between bg-[#151515] rounded-b-xl md:rounded-b-none md:rounded-r-xl"
+      >
+        <div>
+          <div class="flex justify-between items-center mb-2">
+            <span class="px-3 py-1 bg-[#4D4D4D] rounded-xl text-white text-xs font-medium">
+              {{ event.type }}
+            </span>
+          </div>
+          <h3 class="text-lg sm:text-xl font-bold text-white mb-1 sm:mb-2 poppins-bold line-clamp-2">
+            {{ event.title }}
+          </h3>
+          <p class="text-xs sm:text-sm text-gray-300 mb-3 md:mb-4 poppins-regular">
+            {{ event.date }}, {{ event.time }} {{ event.timezone }}
+          </p>
+        </div>
+
+        <div>
+          <div class="flex items-center mb-3 md:mb-4">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4 md:h-5 md:w-5 text-gray-400 mr-2"
+              viewBox="0 -960 960 960"
+              fill="#FFFFFF"
+            >
+              <path
+                d="M40-160v-112q0-34 17.5-62.5T104-378q62-31 126-46.5T360-440q66 0 130 15.5T616-378q29 15 46.5 43.5T680-272v112H40Zm720 0v-120q0-44-24.5-84.5T666-434q51 6 96 20.5t84 35.5q36 20 55 44.5t19 53.5v120H760ZM360-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm400-160q0 66-47 113t-113 47q-11 0-28-2.5t-28-5.5q27-32 41.5-71t14.5-81q0-42-14.5-81T544-792q14-5 28-6.5t28-1.5q66 0 113 47t47 113ZM120-240h480v-32q0-11-5.5-20T580-306q-54-27-109-40.5T360-360q-56 0-111 13.5T140-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T440-640q0-33-23.5-56.5T360-720q-33 0-56.5 23.5T280-640q0 33 23.5 56.5T360-560Zm0 320Zm0-400Z"
+              />
+            </svg>
+            <span class="text-xs sm:text-sm text-gray-300 poppins-regular">
+              <ng-container *ngIf="event.isInPerson; else virtualEvent">In-Person Event</ng-container>
+              <ng-template #virtualEvent>Virtual Event</ng-template>
+            </span>
+          </div>
+
+          <!-- Action buttons -->
+          <!-- <div class="flex gap-2 sm:gap-3 poppins-regular">
+            <a
+              href="javascript:void(0)"
+              class="px-3 py-1 text-xs text-white border border-white rounded-full transition-colors hover:bg-white/20 active:bg-white/30"
+              (click)="$event.stopPropagation()"
+            >
+              Register
+            </a>
+            <a
+              href="javascript:void(0)"
+              class="px-3 py-1 text-xs text-white border border-white rounded-full transition-colors hover:bg-white/20 active:bg-white/30"
+              (click)="$event.stopPropagation()"
+            >
+              Details
+            </a>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

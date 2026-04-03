@@ -1,0 +1,62 @@
+    <section class="relative h-[110vh] flex flex-col justify-center px-4 md:px-30 items-center overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <div class="h-full w-full cmb bg-fixed"></div>
+        <div class="overlay"></div>
+      </div>
+      <div class="z-20 text-center md:text-left w-full px-4 md:px-0">
+        <h1
+          class="text-3xl md:text-[40px] lg:text-[72px] text-white font-bold mb-4 md:absolute md:bottom-[25%] md:left-[10%]"
+        >
+        News Room
+        </h1>
+        <p class="text-sm md:text-base text-white md:absolute md:bottom-[15%] md:left-[10%] max-w-md">
+          Innovating solutions for efficient infrastructure and seamless logistics,
+    ensuring the smooth movement of goods and people worldwide.
+        </p>
+      </div>
+    </section>
+
+
+<!--pagination-->
+<section class="py-16 pt-32 px-30 bg-black">
+  <div class="flex items-center justify-center">
+    <div class="pb-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        @for(number of paginatedNewses; track number.name) {
+        <div class="bg-transparent rounded-lg shadow-lg p-4 flex flex-col justify-between items-center transition-transform transform hover:scale-105 border border-[#E9ECF633] h-full">
+          <div class="w-full h-48 overflow-hidden rounded-lg"> <!-- Fixed height container -->
+            <img src="{{ number.image }}" alt="{{ number.name }}" class="w-full h-full object-cover" />
+          </div>
+          <div class="mt-4 flex-1 flex flex-col">
+            <h6 class="text-white text-xs font-normal poppins-regular">{{ number.name }}</h6>
+            <h3 class="text-white text-24px font-bold flex justify-between items-center poppins-bold">
+              {{ number.subject }}
+
+              <div [routerLink]="['/articles', number.link]" (click)="scrollToTop()" class="cursor-pointer">
+                <div class="flex justify-center items-center">
+                  <mat-icon class="text-gray-400" aria-hidden="false" fontIcon="north_east"></mat-icon>
+                </div>
+              </div>
+            </h3>
+            <p class="text-white text-xs font-normal mt-2 leading-5 poppins-regular flex-1">{{ number.content }}</p>
+          </div>
+        </div>
+        }
+      </div>
+      <mat-paginator
+        [length]="newses.length"
+        [pageSize]="10"
+        [showFirstLastButtons]="true"
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        [pageIndex]="currentPage"
+        (page)="handlePageEvent($event)"
+        aria-label="Select page"
+        class="bg-white text-white mt-8"
+      >
+      </mat-paginator>
+    </div>
+  </div>
+</section>
+
+
+<!-- <hr class="border-t border-white border-b-[1px] border-[#E9ECF633]" /> -->

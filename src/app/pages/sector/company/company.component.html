@@ -1,0 +1,245 @@
+<app-header></app-header>
+
+<section
+  class="relative h-[100vh] sm:h-[110vh] flex flex-col justify-center px-4 sm:px-6 md:px-8 lg:px-30 xl:px-30 items-center overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <div class="overlay"></div>
+    <div class="h-full w-full bg-fixed bg-cover bg-center bg-no-repeat"
+      [style.background-image]="'url(' + company?.banner + ')'"></div>
+  </div>
+
+  <div
+    class="z-10 w-full mx-auto flex flex-col md:flex-row justify-between items-center gap-8 md:gap-12 mb-6 md:mb-0 mt-50 ">
+    <div class="text-center md:text-left w-full md:w-1/2 ">
+
+      <h1
+        class="text-4xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white font-bold mb-3 md:mb-4 leading-tight">
+        {{ company?.title }}
+      </h1>
+      <p
+        class="text-sm xs:text-base sm:text-md md:text-base lg:text-md text-white max-w-full sm:max-w-md md:max-w-lg lg:max-w-xl mx-auto md:mx-0 leading-relaxed">
+        {{ company?.subtitle }}
+      </p>
+    </div>
+
+    <div class="w-full md:w-1/2 flex justify-center md:justify-end" *ngIf="company?.logo">
+      <img [src]="company?.logo" [alt]="company?.title + ' logo'"
+        class="max-h-16 xs:max-h-20 sm:max-h-24 md:max-h-28 lg:max-h-32 xl:max-h-36 2xl:max-h-40 object-contain w-auto max-w-[120px] xs:max-w-[140px] sm:max-w-[160px] md:max-w-[180px] lg:max-w-[200px] xl:max-w-[220px] 2xl:max-w-[240px]" />
+    </div>
+  </div>
+</section>
+
+<section class="py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 lg:px-30 xl:px-30 bg-black">
+  <!-- First - Company Overview Section -->
+  <div class="flex items-center justify-center">
+    <div class="w-full">
+      <div class="w-full max-w-8xl mx-auto">
+        <h2
+          class="text-xl xs:text-2xl sm:text-3xl md:text-[22px] lg:text-[28px] xl:text-[36px] text-white md:text-left mb-4 sm:mb-6 md:mb-8">
+          {{ company?.headerone }}
+        </h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
+          <div class="order-1 lg:order-1">
+            <h2
+              class="text-2xl xs:text-3xl sm:text-4xl md:text-[35px] lg:text-[40px] xl:text-[45px] leading-tight bg-clip-text text-[transparent] bg-gradient-to-r from-white to-gray-400 font-bold mb-4 sm:mb-6 md:text-left">
+              {{ company?.contentone }} <br class="hidden sm:block" />
+              {{ company?.contenttwo }} <br class="hidden sm:block" />
+              {{ company?.contentthree }}
+            </h2>
+
+            <p
+              class="text-sm xs:text-base sm:text-lg md:text-base lg:text-lg text-[#9CA3AF] mb-6 sm:mb-8 md:text-left leading-relaxed">
+              {{ company?.paragraphone }}
+            </p>
+
+            <div class="flex md:justify-start">
+              <a [href]="company?.link" target="_blank" rel="noopener noreferrer" class="inline-block">
+                <button
+                  class="w-full xs:w-auto min-w-[200px] py-2.5 sm:py-3 px-6 sm:px-8 border border-[#404040] hover:border-[#606060] text-white text-sm sm:text-base rounded-full hover:scale-105 hover:bg-[#1a1a1a] transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3 cursor-pointer">
+                  {{ company?.cardparagraphthree }}
+                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                    fill="#FFFFFF">
+                    <path d="m216-160-56-56 464-464H360v-80h400v400h-80v-264L216-160Z" />
+                  </svg>
+                </button>
+              </a>
+            </div>
+          </div>
+
+          <div
+            class="order-2 lg:order-2 text-gray-300 text-sm xs:text-base sm:text-lg md:text-base lg:text-lg space-y-4 sm:space-y-6">
+            <p class="leading-relaxed md:text-left lg:text-justify">{{ company?.paragraphtwo }}</p>
+            <p class="leading-relaxed md:text-left lg:text-justify">{{ company?.paragraphthree }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Full Width Card Section -->
+  <div class="w-full mx-auto mt-8 sm:mt-12 md:mt-16" *ngIf="shouldShowCard()">
+    <div class="bg-white rounded-2xl shadow-2xl overflow-hidden w-full border border-[#e5e7eb]">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+        <!-- Left Side - Card Logo and Button -->
+        <div
+          class="p-8 lg:p-12 flex flex-col items-center justify-center space-y-8 bg-gradient-to-br from-white to-[#f9f9f9]">
+          <div class="flex justify-center">
+            <img [src]="company?.cardlogo" [alt]="(company?.cardtitle || company?.title) + ' logo'"
+              class="max-h-20 sm:max-h-24 lg:max-h-60 object-contain w-auto transition-transform duration-300 hover:scale-105" />
+          </div>
+          <div class="w-full max-w-sm">
+            <a [href]="company?.cardlink || company?.link" target="_blank" rel="noopener noreferrer"
+              class="block w-full">
+              <button
+                class="w-full py-3 px-6 border-2 border-[#d1d5db] hover:border-[#9ca3af] text-black text-sm sm:text-base rounded-full hover:scale-105 hover:bg-[#f3f4f6] transition-all duration-300 flex items-center justify-center gap-3 cursor-pointer font-medium">
+                {{ company?.cardparagraphthree || 'Visit Website' }}
+                <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"
+                  fill="#000000">
+                  <path d="m216-160-56-56 464-464H360v-80h400v400h-80v-264L216-160Z" />
+                </svg>
+              </button>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Side - Card Information -->
+        <div class="p-8 lg:p-12 flex flex-col justify-center bg-white">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-2xl text-black font-bold mb-6 leading-tight">
+            {{ company?.cardheading || company?.title }}
+          </h2>
+          <p class="text-gray-600 text-base sm:text-md lg:text-md leading-relaxed mb-6">
+            {{ company?.cardsubtitle || company?.subtitle }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Third - Contact Section with Grid System  -->
+  <div class="py-8 sm:py-12 md:py-16" *ngIf="company?.contact">
+    <!-- Contact Header -->
+    <div class="grid grid-cols-1 gap-6 mb-8 sm:mb-12">
+      <div class="space-y-6">
+        <p
+          class="text-xl xs:text-2xl sm:text-3xl md:text-[22px] lg:text-[28px] xl:text-[36px] text-white md:text-left mb-4 sm:mb-6 md:mb-8">
+          {{ company?.contact?.sectionLabel || 'Contact' }}
+        </p>
+        <h1
+          class="text-2xl xs:text-3xl sm:text-4xl md:text-[35px] lg:text-[40px] xl:text-[45px] leading-tight bg-clip-text text-[transparent] bg-gradient-to-r from-white to-gray-400 font-bold mb-4 sm:mb-6 md:text-left">
+          {{ company?.contact?.title || 'Partner with a Team' }}<br />
+          <span class="text-white">{{ company?.contact?.subtitle || 'That Powers Innovation' }}</span>
+        </h1>
+        <p
+          class="text-sm xs:text-base sm:text-lg md:text-base lg:text-lg text-[#9CA3AF] mb-6 sm:mb-8 md:text-left leading-relaxed">
+          {{ company?.contact?.description || "From concept to launch, we're here to support your next big idea." }}
+        </p>
+      </div>
+    </div>
+
+    <!-- Contact Content Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-12">
+      <!-- Left Column - Contact Image -->
+      <div class="lg:col-span-5 xl:col-span-5">
+        <div class="relative w-full">
+          <div class="aspect-[4/3] lg:aspect-[3/4] xl:aspect-[4/5] relative overflow-hidden rounded-2xl shadow-2xl">
+            <img [src]="company?.contact?.image" [alt]="company?.title + ' contact'"
+              class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" loading="lazy" />
+            <!-- Enhanced gradient overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column - Contact Information -->
+      <div class="lg:col-span-5 xl:col-span-5">
+        <div class="space-y-8 lg:space-y-10">
+          <!-- Contact Items Grid -->
+          <div class="grid grid-cols-1 gap-6 lg:gap-6">
+            <!-- Phone Contact -->
+            <div
+              class="group flex flex-col sm:flex-row items-center sm:items-start gap-4 lg:gap-6 text-center sm:text-left p-4 lg:p-6 rounded-xl"
+              *ngIf="company?.contact?.phone">
+              <div class="relative">
+                <div
+                  class="w-12 h-12 lg:w-14 lg:h-14 bg-gradient-to-r from-white to-white rounded-full flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                    fill="#000000">
+                    <path
+                      d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12ZM241-600l66-66-17-94h-89q5 41 14 81t26 79Zm358 358q39 17 79.5 27t81.5 13v-88l-94-19-67 67ZM241-600Zm358 358Z" />
+                  </svg>
+                </div>
+                <!-- Subtle glow effect -->
+                <div
+                  class="absolute inset-0 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                </div>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-xs lg:text-sm text-gray-400 uppercase tracking-wider font-medium mb-1 lg:mb-2">Mobile</p>
+                <p class="text-lg lg:text-xl text-white font-semibold break-all">
+                  {{ company?.contact?.phone }}
+                </p>
+              </div>
+            </div>
+
+            <!-- Email Contact -->
+            <div
+              class="group flex flex-col sm:flex-row items-center sm:items-start gap-4 lg:gap-6 text-center sm:text-left p-4 lg:p-6 rounded-xl"
+              *ngIf="company?.contact?.email">
+              <div class="relative">
+                <div
+                  class="w-12 h-12 lg:w-14 lg:h-14 bg-gradient-to-r from-white to-white rounded-full flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                    fill="#000000">
+                    <path
+                      d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
+                  </svg>
+                </div>
+                <!-- Subtle glow effect -->
+                <div
+                  class="absolute inset-0 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                </div>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-xs lg:text-sm text-gray-400 uppercase tracking-wider font-medium mb-1 lg:mb-2">Email</p>
+                <p class="text-lg lg:text-xl text-white font-semibold break-all">
+                  {{ company?.contact?.email }}
+                </p>
+              </div>
+            </div>
+
+            <!-- Location Contact -->
+            <div
+              class="group flex flex-col sm:flex-row items-center sm:items-start gap-4 lg:gap-6 text-center sm:text-left p-4 lg:p-6 rounded-xl"
+              *ngIf="company?.contact?.address">
+              <div class="relative">
+                <div
+                  class="w-12 h-12 lg:w-14 lg:h-14 bg-gradient-to-r from-white to-white rounded-full flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                    fill="#000000">
+                    <path
+                      d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z" />
+                  </svg>
+                </div>
+                <!-- Subtle glow effect -->
+                <div
+                  class="absolute inset-0 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                </div>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-xs lg:text-sm text-gray-400 uppercase tracking-wider font-medium mb-1 lg:mb-2">
+                  Address
+                </p>
+                <p class="text-lg lg:text-xl text-white font-semibold break-all">
+                  {{ company?.contact?.address }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

@@ -1,0 +1,94 @@
+<section>
+  <div class="bg-black text-white py-20 px-4 md:py-16 md:px-8 lg:px-30">
+    <div class="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
+      <div class="mb-8 md:mb-12">
+        <!-- 01. Banner -->
+        <div class="mb-6 md:mb-8 my-4 md:my-8">
+          <img src="{{ article.banner }}" class="w-full h-48 sm:h-64 md:h-auto object-cover md:object-contain rounded-lg" alt="Article Banner" />
+        </div>
+
+        <!-- 02. Heading -->
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold inter-bold mb-4 px-2 md:px-8 leading-tight">{{ article.heading }}</h1>
+
+        <!-- 03. Avatar with author info and social share icons -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 md:mb-8 px-2 md:px-8">
+          <!-- Author info with avatar -->
+          <div class="flex items-center mb-4 md:mb-0">
+            <img src="{{ article.avatar }}" class="w-10 h-10 md:w-12 md:h-12 rounded-full mr-3 md:mr-4 flex-shrink-0" alt="Author's Avatar" />
+            <div>
+              <p class="text-gray-400 text-xs md:text-sm poppins-regular">{{ article.author.detailone }}</p>
+              <p class="text-white text-xs md:text-sm font-medium poppins-regular">{{ article.author.detailtwo }}</p>
+            </div>
+          </div>
+
+          <!-- Social share icons (commented out but keeping structure) -->
+          <!-- <div class="flex items-center">
+            <span class="text-gray-400 mr-3 inter-regular text-sm">Share:</span>
+            <a href="#" class="text-gray-400 hover:text-white mr-4">
+              <img class="social-icon w-4 h-4 md:w-5 md:h-5" src="/images/news/articles/FB.png" alt="Facebook" />
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white mr-4">
+              <img class="social-icon w-4 h-4 md:w-5 md:h-5" src="/images/news/articles/Insta.png" alt="Instagram" />
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white">
+              <img class="social-icon w-4 h-4 md:w-5 md:h-5" src="/images/news/articles/link.png" alt="Link" />
+            </a>
+          </div> -->
+        </div>
+
+        <!-- 04. Content sections -->
+        <div class="prose prose-sm md:prose-lg prose-invert max-w-none mb-6 md:mb-8 px-2 md:px-8">
+          <p class="text-[#A1A1AA] inter-regular text-sm md:text-base leading-relaxed">{{ article.contentone }}</p>
+        </div>
+
+        <div class="prose prose-sm md:prose-lg prose-invert max-w-none mb-6 md:mb-8 px-2 md:px-8">
+          <p class="text-[#A1A1AA] inter-regular text-sm md:text-base leading-relaxed">{{ article.contenttwo }}</p>
+        </div>
+
+        <div class="prose prose-sm md:prose-lg prose-invert max-w-none mb-6 md:mb-8 px-2 md:px-8">
+          <p class="text-[#A1A1AA] inter-regular text-sm md:text-base leading-relaxed">{{ article.contentthree }}</p>
+        </div>
+
+        <!-- 05. Quote -->
+        <div class="my-6 md:my-8 border-l-4 border-red-500 pl-4 md:pl-8 mx-2 md:mx-0 md:w-3/4">
+          <blockquote class="text-lg md:text-xl font-regular italic tracking-[0px] text-[#A1A1AA] leading-relaxed">
+            "{{ article.quote }}"
+          </blockquote>
+        </div>
+
+        <!-- Small heading and content -->
+        <div class="prose prose-sm md:prose-lg prose-invert max-w-none mb-6 md:mb-8 px-2 md:px-8 md:w-3/4">
+          <h6 class="text-lg md:text-xl text-white inter-bold font-semibold mb-3">{{ article.smallheading }}</h6>
+        </div>
+
+        <div class="prose prose-sm md:prose-lg prose-invert max-w-none mb-6 md:mb-8 px-2 md:px-8">
+          <p class="text-[#A1A1AA] inter-regular text-sm md:text-base leading-relaxed">{{ article.smallcontent }}</p>
+        </div>
+
+        <!-- 06. Content four -->
+        <div class="prose prose-sm md:prose-lg prose-invert max-w-none mb-6 md:mb-8 px-2 md:px-8">
+          <p class="text-[#A1A1AA] leading-relaxed md:leading-[28px] inter-regular text-sm md:text-base">{{ article.contenfour }}</p>
+        </div>
+
+        <!-- 07. Header two -->
+        <h2 class="text-lg md:text-xl font-bold mt-6 md:mt-8 mb-4 px-2 md:px-8 inter-bold leading-tight">{{ article.headertwo }}</h2>
+
+        <!-- Article image -->
+        <div class="my-6 md:my-8 px-2 md:px-8">
+          <div class="flex justify-start">
+            <div class="w-full">
+              <img src="{{ article.imagesaas }}" class="w-full h-48 sm:h-64 md:h-auto object-cover md:object-contain rounded-lg" alt="Article Image" />
+            </div>
+          </div>
+        </div>
+
+        <!-- 09. Content five -->
+        <div class="prose prose-sm md:prose-lg prose-invert max-w-none px-2 md:px-8 mb-6 md:mb-0">
+          <p class="text-[#A1A1AA] leading-relaxed md:leading-[28px] inter-regular text-sm md:text-base">{{ article.contentfive }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <hr class="border-t border-white border-b-[1px] border-[#E9ECF633]" /> -->

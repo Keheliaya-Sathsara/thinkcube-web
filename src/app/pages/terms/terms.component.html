@@ -1,0 +1,77 @@
+<app-header></app-header>
+
+<section class="terms-container">
+  <!-- Loading Spinner -->
+  <div *ngIf="isLoading" class="loading-container">
+    <div class="spinner"></div>
+    <p>Loading Terms & Conditions...</p>
+  </div>
+
+  <!-- Main Content -->
+  <div *ngIf="!isLoading" class="terms-content">
+    
+    <!-- Header Section with Gradient -->
+    <div class="header-section">
+      <div class="header-content">
+        <h1>Terms & Conditions</h1>
+        <!-- <p class="last-updated">Last Updated: {{ lastUpdated }}</p> -->
+      </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+      
+      <!-- Introduction Section -->
+      <div class="intro-card">
+        <div class="card-content">
+          <p class="intro-text">{{ introText }}</p>
+        </div>
+      </div>
+
+      <div class="sections-grid">
+        
+        <!-- Terms Sections as Cards -->
+        <div *ngFor="let section of sections; trackBy: trackBySection; let i = index" class="section-card">
+          <div class="card-header">
+            <h2><span class="section-number">{{ i + 1 }}.</span> {{ section.title }}</h2>
+          </div>
+          <div class="card-content">
+            <div class="section-content" [innerHTML]="section.content"></div>
+          </div>
+        </div>
+
+        <!-- Contact Section Card -->
+        <div class="section-card contact-card">
+          <div class="card-header">
+            <h2>Contact Us</h2>
+          </div>
+          <div class="card-content">
+            <p>
+              If you have any questions regarding these Terms & Conditions, please contact us at:
+            </p>
+            <div class="contact-info">
+              <div class="contact-item">
+                <a [href]="'mailto:' + contactEmail" (click)="onEmailClick()" class="email-link">
+                  {{ contactEmail }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <!-- <div class="footer">
+      <p class="footer-text">
+        © {{ currentYear }} {{ companyName }}. All rights reserved.
+      </p>
+    </div> -->
+
+  </div>
+
+
+</section>
+
+<app-footer></app-footer>

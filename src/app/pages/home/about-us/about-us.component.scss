@@ -1,0 +1,25 @@
+.gradient-header {
+  font-weight: bold;
+  background: linear-gradient(to right, #ffffff, #71717a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+// logo carousel
+.slider .slider-animation {
+  // width: 3600px;
+  width: 36000px;
+  animation: scroll 20s linear infinite;
+}
+.slider .slider-animation:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-1000px);
+  }
+}

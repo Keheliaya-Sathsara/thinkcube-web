@@ -1,0 +1,88 @@
+<app-header></app-header>
+
+<section class="privacy-policy-container">
+  <!-- Loading Spinner -->
+  <div *ngIf="isLoading" class="loading-container">
+    <div class="spinner"></div>
+    <p>Loading Privacy Policy...</p>
+  </div>
+
+  <!-- Main Content -->
+  <div *ngIf="!isLoading" class="privacy-content">
+    
+    <!-- Header Section with Gradient -->
+    <div class="header-section">
+      <div class="header-content">
+        <h1>Privacy Policy</h1>
+        <!-- <p class="last-updated">Last Updated: {{ lastUpdated }}</p> -->
+      </div>
+      <!-- Curved Divider -->
+      <!-- <div class="curved-divider">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"></path>
+        </svg>
+      </div> -->
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+      
+      <!-- Introduction Section -->
+      <div class="intro-card">
+        <div class="card-content">
+          <p class="intro-text">
+            We are committed to protecting your privacy and ensuring the security of your personal information. 
+            This Privacy Policy explains how we collect, use, and safeguard your data when you use our services.
+          </p>
+        </div>
+      </div>
+
+      <div class="sections-grid">
+        
+        <!-- Policy Sections as Cards -->
+        <div *ngFor="let section of sections; trackBy: trackBySection; let i = index" class="section-card">
+          <div class="card-header">
+            <h2><span class="section-number">{{ i + 1 }}.</span> {{ section.title }}</h2>
+          </div>
+          <div class="card-content">
+            <div class="section-content" [innerHTML]="section.content"></div>
+          </div>
+        </div>
+
+        <!-- Contact Section Card -->
+        <div class="section-card contact-card">
+          <div class="card-header">
+            <h2>Contact Us</h2>
+          </div>
+          <div class="card-content">
+            <p>
+              If you have any questions regarding this Privacy Policy or how your data is handled, 
+              please contact us at:
+            </p>
+            <div class="contact-info">
+              <div class="contact-item">
+                <!-- <span class="email-icon">📧</span> -->
+                <a [href]="'mailto:' + contactEmail" (click)="onEmailClick()" class="email-link">
+                  {{ contactEmail }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <!-- <div class="footer">
+      <p class="footer-text">
+        © {{ currentYear }} {{ companyName }}. All rights reserved.
+      </p>
+    </div> -->
+
+  </div>
+
+
+</section>
+
+<app-footer></app-footer>

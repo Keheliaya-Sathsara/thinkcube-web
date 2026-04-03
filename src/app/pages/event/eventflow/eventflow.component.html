@@ -1,0 +1,79 @@
+<!-- Banner Section -->
+<section
+  class="relative h-screen flex flex-col justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-30 items-center overflow-hidden"
+>
+  <!-- Dark Overlay -->
+  <div class="absolute inset-0 z-10 bg-black opacity-60 md:opacity-65"></div>
+  <div class="overlay"></div>
+
+  <!-- Background Image -->
+  <div class="absolute inset-0 z-0">
+    <div
+      class="h-full w-full bg-fixed bg-cover bg-center bg-no-repeat"
+      [ngStyle]="{ 'background-image': 'url(' + eventflow?.banner + ')' }"
+    ></div>
+  </div>
+
+  <!-- Event Details -->
+  <div class="z-20 flex flex-col text-center md:text-left w-full max-w-7xl mx-auto relative">
+    <!-- Event Type -->
+    <div class="flex items-center justify-center md:justify-start mb-3 md:mb-4">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-4 w-4 sm:h-5 sm:w-5 text-gray-400 mr-2"
+        height="24px"
+        viewBox="0 -960 960 960"
+        width="24px"
+        fill="#FFFFFF"
+      >
+        <path
+          d="M40-160v-112q0-34 17.5-62.5T104-378q62-31 126-46.5T360-440q66 0 130 15.5T616-378q29 15 46.5 43.5T680-272v112H40Zm720 0v-120q0-44-24.5-84.5T666-434q51 6 96 20.5t84 35.5q36 20 55 44.5t19 53.5v120H760ZM360-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm400-160q0 66-47 113t-113 47q-11 0-28-2.5t-28-5.5q27-32 41.5-71t14.5-81q0-42-14.5-81T544-792q14-5 28-6.5t28-1.5q66 0 113 47t47 113ZM120-240h480v-32q0-11-5.5-20T580-306q-54-27-109-40.5T360-360q-56 0-111 13.5T140-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T440-640q0-33-23.5-56.5T360-720q-33 0-56.5 23.5T280-640q0 33 23.5 56.5T360-560Zm0 320Zm0-400Z"
+        />
+      </svg>
+      <span class="text-xs sm:text-sm text-gray-300 poppins-regular">
+        <ng-container *ngIf="eventflow?.isInPerson; else virtualEvent">In-Person Event</ng-container>
+        <ng-template #virtualEvent>Virtual Event</ng-template>
+      </span>
+    </div>
+
+    <!-- Title -->
+    <h1
+      class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white inter-medium mb-3 md:mb-4 leading-tight"
+    >
+      {{ eventflow?.title }}
+    </h1>
+
+    <!-- Subtitle -->
+    <p
+      class="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-[#A6A6A6] max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl mx-auto md:mx-0"
+    >
+      {{ eventflow?.subtitle }}
+    </p>
+  </div>
+</section>
+
+<!-- Gallery Section -->
+
+<section class="bg-black py-12 md:py-16 px-4 md:px-30">
+  <h1 class="inter-bold text-white text-[32px] leading-[40px]">
+    {{ eventflow?.heading }}
+  </h1>
+  <p class="mt-4 text-[#A1A1AA] text-[16px] mb-10 inter-regular">
+    {{ eventflow?.contentone }}
+  </p>
+  <div *ngIf="eventflow?.galleryItems?.length" class="grid grid-cols-2 gap-2 md:grid-cols-4">
+    <div
+      *ngFor="let item of eventflow?.galleryItems"
+      class="relative cursor-pointer transition-all duration-500 ease-in-out hover:opacity-60 hover:shadow-lg hover:bg-gray-800"
+      [ngClass]="{
+        'col-span-2 row-span-2': item.size === 'lg',
+        'col-span-2': item.size === 'xl',
+        'row-span-2': item.size === 'md',
+        'col-span-1': item.size === 'sm',
+        'col-span-1 row-span-1': item.size === 'xs'
+      }"
+    >
+      <img [src]="item.src" alt="Event Image" class="w-full h-full object-cover border-0 rounded-xl" />
+    </div>
+  </div>
+</section>

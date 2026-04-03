@@ -1,0 +1,49 @@
+[
+    {
+      "image": "/assets/images/news/pagin-01.jpg",
+      "name": "Malith Weeramuni 20 January 2025",
+      "subject": "New Technology Trends",
+      "link": "1",
+      "content": "How do you stay up-to-date with the latest technology trends?",
+      "iconHref": "https://www.oceanwatch.lk",
+      "button1": {
+        "label": "Tech",
+        "href": "https://www.oceanwatch.lk",
+        "class": "btn-1"
+      },
+      "button2": {
+        "label": "Innovation",
+        "href": "https://www.oceanwatch.lk",
+        "class": "btn-2"
+      },
+      "button3": {
+        "label": "Trends",
+        "href": "https://www.oceanwatch.lk",
+        "class": "btn-3"
+      }
+    },
+    {
+      "image": "/assets/images/news/pagin-02.jpg",
+      "name": "Asmaa Kharposh 20 January 2025",
+      "subject": "Artificial Intelligence",
+      "link": "2",
+      "content": "How do you think artificial intelligence will change the world?",
+      "iconHref": "https://www.oceanwatch.lk",
+      "button1": {
+        "label": "AI",
+        "href": "https://www.oceanwatch.lk",
+        "class": "btn-1"
+      },
+      "button2": {
+        "label": "Machine Learning",
+        "href": "https://www.oceanwatch.lk",
+        "class": "btn-2"
+      },
+      "button3": {
+        "label": "Deep Learning",
+        "href": "https://www.oceanwatch.lk",
+        "class": "btn-3"
+      }
+    }
+  ]
+  

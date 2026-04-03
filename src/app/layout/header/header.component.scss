@@ -1,0 +1,82 @@
+.mobile-header {
+  background: radial-gradient(ellipse at top, #ea0a2a -9%, transparent 95%);
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  visibility: hidden;
+  color: black;
+}
+
+.mobile-menu-open {
+  transform: translateX(0) !important;
+  visibility: visible !important;
+}
+
+.mobile-menu-closed {
+  transform: translateX(100%) !important;
+  visibility: hidden !important;
+}
+
+// Desktop dropdown styles
+.nav-links {
+  .dropdown-menu {
+    @apply opacity-0 invisible;
+    transition: all 0.3s ease;
+    transform: translateY(-10px);
+  }
+  
+  li:hover .dropdown-menu {
+    @apply opacity-100 visible;
+    transform: translateY(0);
+  }
+}
+
+// Animation for mobile industries dropdown
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Rotation animation for dropdown arrows
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+// Backdrop overlay styles
+.mobile-backdrop {
+  backdrop-filter: blur(4px);
+}
+
+// Ensure proper z-index stacking
+.mobile-header {
+  z-index: 9999;
+}
+
+// Smooth transitions for all mobile menu elements
+.mobile-header * {
+  transition: all 0.2s ease-in-out;
+}
+
+// Hover effects for mobile menu items
+.mobile-header a:hover {
+  transform: translateX(4px);
+}
+
+// Mobile menu responsive adjustments
+@media (max-width: 640px) {
+  .mobile-header {
+    padding: 1rem;
+  }
+}

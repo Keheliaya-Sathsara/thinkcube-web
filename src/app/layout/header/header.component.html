@@ -1,0 +1,452 @@
+<header [ngClass]="{ 'bg-black': isScrolled }" class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
+  <nav class="flex items-center justify-between p-6 lg:px-30" aria-label="Global">
+    <div class="flex lg:flex-1">
+      <a href="#" class="-m-1.5 p-1.5">
+        <span class="sr-only">Your Company</span>
+        <img class="h-10 w-auto" src="/images/home/logo.png" alt="" />
+      </a>
+    </div>
+
+    <!-- Hamburger Menu Button -->
+    <div class="flex lg:hidden">
+      <button
+        type="button"
+        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-[#b2a0a0]"
+        (click)="toggleMobileMenu()"
+        [attr.aria-expanded]="isMobileMenuOpen"
+        aria-label="Toggle navigation menu"
+      >
+        <span class="sr-only">Open main menu</span>
+        <!-- Hamburger Icon -->
+        <svg
+          *ngIf="!isMobileMenuOpen"
+          class="size-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+        <!-- Close Icon -->
+        <svg
+          *ngIf="isMobileMenuOpen"
+          class="size-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Desktop Menu -->
+    <ul class="nav-links hidden lg:flex lg:gap-x-10 font-medium">
+      <li>
+        <a
+          (click)="navigateAndScrollTop('/')"
+          class="text-sm text-white hover:text-primary hover:scale-105 transition-all duration-300 flex items-center gap-1 cursor-pointer"
+        >
+          Home
+        </a>
+      </li>
+
+      <li>
+        <a
+          (click)="navigateAndScrollTop('/aboutus')"
+          class="text-sm text-white hover:text-primary hover:scale-105 transition-all duration-300 cursor-pointer flex items-center gap-1"
+        >
+          About Us
+        </a>
+      </li>
+
+      <!-- Industries Dropdown -->
+      <li class="relative group">
+        <a
+          (click)="handleIndustriesClick()"
+          class="text-sm text-white hover:text-primary hover:scale-105 transition-all duration-300 cursor-pointer flex items-center gap-1"
+        >
+          Industries
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-3 w-3 ml-1 transition-transform duration-300 group-hover:rotate-180"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </a>
+        <ul
+          class="dropdown-menu absolute left-0 mt-3 w-60 bg-black rounded-lg shadow-xl py-2 z-10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100"
+        >
+          <!-- <li>
+            <a
+              (click)="navigateToSector('10')"
+              class="block px-6 py-3 text-sm text-white hover:bg-gray-700 hover:text-primary transition-colors flex items-center gap-2 cursor-pointer"
+            >
+              Transportation
+            </a>
+          </li> -->
+          <!-- <li>
+            <a
+              (click)="navigateToSector('1')"
+              class="block px-6 py-3 text-sm text-white hover:bg-gray-700 hover:text-primary transition-colors flex items-center gap-2 cursor-pointer"
+            >
+              Telecommunication & IT
+            </a>
+          </li> -->
+          <li>
+            <a
+              (click)="navigateToSector('2')"
+              class="block px-6 py-3 text-sm text-white hover:bg-gray-700 hover:text-primary transition-colors flex items-center gap-2 cursor-pointer"
+            >
+              Business Process Outsourcing
+            </a>
+          </li>
+          <!-- <li>
+            <a
+              (click)="navigateToSector('3')"
+              class="block px-6 py-3 text-sm text-white hover:bg-gray-700 hover:text-primary transition-colors flex items-center gap-2 cursor-pointer"
+            >
+              Trading
+            </a>
+          </li> -->
+          <li>
+            <a
+              (click)="navigateToSector('4')"
+              class="block px-6 py-3 text-sm text-white hover:bg-gray-700 hover:text-primary transition-colors flex items-center gap-2 cursor-pointer"
+            >
+              Power & Energy
+            </a>
+          </li>
+          <li>
+            <a
+              (click)="navigateToSector('5')"
+              class="block px-6 py-3 text-sm text-white hover:bg-gray-700 hover:text-primary transition-colors flex items-center gap-2 cursor-pointer"
+            >
+              Healthcare
+            </a>
+          </li>
+          <!-- <li>
+            <a
+              (click)="navigateToSector('6')"
+              class="block px-6 py-3 text-sm text-white hover:bg-gray-700 hover:text-primary transition-colors flex items-center gap-2 cursor-pointer"
+            >
+              Agriculture & Food Security
+            </a>
+          </li> -->
+          <li>
+            <a
+              (click)="navigateToSector('7')"
+              class="block px-6 py-3 text-sm text-white hover:bg-gray-700 hover:text-primary transition-colors flex items-center gap-2 cursor-pointer"
+            >
+              Water & Irrigation
+            </a>
+          </li>
+          <!-- <li>
+            <a
+              (click)="navigateToSector('8')"
+              class="block px-6 py-3 text-sm text-white hover:bg-gray-700 hover:text-primary transition-colors flex items-center gap-2 cursor-pointer"
+            >
+              Defense
+            </a>
+          </li> -->
+          <li>
+            <a
+              (click)="navigateToSector('9')"
+              class="block px-6 py-3 text-sm text-white hover:bg-gray-700 hover:text-primary transition-colors flex items-center gap-2 cursor-pointer"
+            >
+              Leisure
+            </a>
+          </li>
+          <li>
+            <a
+              (click)="navigateToSector('12')"
+              class="block px-6 py-3 text-sm text-white hover:bg-gray-700 hover:text-primary transition-colors flex items-center gap-2 cursor-pointer"
+            >
+              Broadcasting
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a
+          (click)="navigateAndScrollTop('/news')"
+          class="text-sm text-white hover:text-primary hover:scale-105 transition-all duration-300 flex items-center gap-1 cursor-pointer"
+        >
+          News Room
+        </a>
+      </li>
+
+      <li>
+        <a
+          (click)="navigateAndScrollTop('/event')"
+          class="text-sm text-white hover:text-primary hover:scale-105 transition-all duration-300 flex items-center gap-1 cursor-pointer"
+        >
+          Events
+        </a>
+      </li>
+    </ul>
+
+    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+      <a
+        (click)="navigateToContact()"
+        class="rounded-[8px] px-4 py-2 bg-[#EA0A2A] hover:bg-white text-sm/6 font-semibold text-white hover:text-[#EA0A2A] transition-colors duration-300 flex items-center gap-2 cursor-pointer"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          class="transition-colors duration-300"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M7 17l9.2-9.2M17 17V7H7"></path>
+        </svg>
+        Get in Touch
+      </a>
+    </div>
+  </nav>
+
+  <!-- Mobile menu overlay and panel -->
+  <div class="lg:hidden">
+    <!-- Backdrop overlay -->
+    <div 
+      *ngIf="isMobileMenuOpen"
+      class="fixed inset-0 z-40 bg-black bg-opacity-50 transition-opacity duration-300"
+      (click)="closeMobileMenu()"
+      [@fadeInOut]
+    ></div>
+
+    <!-- Mobile menu panel -->
+    <div
+      class="mobile-header fixed inset-y-0 right-0 z-50 w-full overflow-y-auto px-6 py-6 sm:max-w-sm"
+      [class.mobile-menu-open]="isMobileMenuOpen"
+      [class.mobile-menu-closed]="!isMobileMenuOpen"
+    >
+      <!-- Mobile menu header -->
+      <div class="flex items-center justify-between mb-8">
+        <a href="#" class="-m-1.5 p-1.5" (click)="navigateAndScrollTop('/')">
+          <span class="sr-only">Your Company</span>
+          <img class="h-8 w-auto" src="/images/home/logo.png" alt="" />
+        </a>
+        <button
+          type="button"
+          class="-m-2.5 rounded-md p-2.5 text-white hover:text-gray-300 transition-colors duration-200"
+          (click)="closeMobileMenu()"
+        >
+          <span class="sr-only">Close menu</span>
+          <svg
+            class="size-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile menu items -->
+      <div class="flow-root">
+        <div class="space-y-4">
+          <a
+            (click)="navigateAndCloseMobile('/')"
+            class="flex items-center gap-3 rounded-lg px-4 py-3 text-lg font-medium text-white hover:bg-black hover:bg-opacity-10 transition-all duration-200 cursor-pointer"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            Home
+          </a>
+
+          <a
+            (click)="navigateAndCloseMobile('/aboutus')"
+            class="flex items-center gap-3 rounded-lg px-4 py-3 text-lg font-medium text-white hover:bg-black hover:bg-opacity-10 transition-all duration-200 cursor-pointer"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            About Us
+          </a>
+
+          <!-- Mobile Industries Dropdown -->
+          <div class="space-y-2">
+            <button
+              (click)="toggleMobileIndustries()"
+              class="flex items-center justify-between w-full gap-3 rounded-lg px-4 py-3 text-lg font-medium text-white hover:bg-black hover:bg-opacity-10 transition-all duration-200"
+            >
+              <div class="flex items-center gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+                Industries
+              </div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 w-4 transition-transform duration-200"
+                [class.rotate-180]="isMobileIndustriesOpen"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            <div 
+              *ngIf="isMobileIndustriesOpen"
+              class="ml-8 space-y-2 border-l-2 border-white border-opacity-20 pl-4 animate-fade-in"
+            >
+              <!-- <a
+                (click)="navigateToSectorAndClose('10')"
+                class="block rounded-lg px-4 py-2 text-sm text-white hover:bg-black hover:bg-opacity-10 transition-all duration-200 cursor-pointer"
+              >
+                Transportation
+              </a> -->
+              <!-- <a
+                (click)="navigateToSectorAndClose('1')"
+                class="block rounded-lg px-4 py-2 text-sm text-white hover:bg-black hover:bg-opacity-10 transition-all duration-200 cursor-pointer"
+              >
+                Telecommunication & IT
+              </a> -->
+              <a
+                (click)="navigateToSectorAndClose('2')"
+                class="block rounded-lg px-4 py-2 text-sm text-white hover:bg-black hover:bg-opacity-10 transition-all duration-200 cursor-pointer"
+              >
+                Business Process Outsourcing
+              </a>
+              <!-- <a
+                (click)="navigateToSectorAndClose('3')"
+                class="block rounded-lg px-4 py-2 text-sm text-white hover:bg-black hover:bg-opacity-10 transition-all duration-200 cursor-pointer"
+              >
+                Trading
+              </a> -->
+              <a
+                (click)="navigateToSectorAndClose('4')"
+                class="block rounded-lg px-4 py-2 text-sm text-white hover:bg-black hover:bg-opacity-10 transition-all duration-200 cursor-pointer"
+              >
+                Power & Energy
+              </a>
+              <a
+                (click)="navigateToSectorAndClose('5')"
+                class="block rounded-lg px-4 py-2 text-sm text-white hover:bg-black hover:bg-opacity-10 transition-all duration-200 cursor-pointer"
+              >
+                Healthcare
+              </a>
+              <!-- <a
+                (click)="navigateToSectorAndClose('6')"
+                class="block rounded-lg px-4 py-2 text-sm text-white hover:bg-black hover:bg-opacity-10 transition-all duration-200 cursor-pointer"
+              >
+                Agriculture & Food Security
+              </a> -->
+              <a
+                (click)="navigateToSectorAndClose('7')"
+                class="block rounded-lg px-4 py-2 text-sm text-white hover:bg-black hover:bg-opacity-10 transition-all duration-200 cursor-pointer"
+              >
+                Water & Irrigation
+              </a>
+              <!-- <a
+                (click)="navigateToSectorAndClose('8')"
+                class="block rounded-lg px-4 py-2 text-sm text-white hover:bg-black hover:bg-opacity-10 transition-all duration-200 cursor-pointer"
+              >
+                Defense
+              </a> -->
+              <a
+                (click)="navigateToSectorAndClose('9')"
+                class="block rounded-lg px-4 py-2 text-sm text-white hover:bg-black hover:bg-opacity-10 transition-all duration-200 cursor-pointer"
+              >
+                Leisure
+              </a>
+              <a
+                (click)="navigateToSectorAndClose('12')"
+                class="block rounded-lg px-4 py-2 text-sm text-white hover:bg-black hover:bg-opacity-10 transition-all duration-200 cursor-pointer"
+              >
+                Broadcasting
+              </a>
+            </div>
+          </div>
+
+          <a
+            (click)="navigateAndCloseMobile('/news')"
+            class="flex items-center gap-3 rounded-lg px-4 py-3 text-lg font-medium text-white hover:bg-black hover:bg-opacity-10 transition-all duration-200 cursor-pointer"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+            </svg>
+            News Room
+          </a>
+
+          <a
+            (click)="navigateAndCloseMobile('/event')"
+            class="flex items-center gap-3 rounded-lg px-4 py-3 text-lg font-medium text-white hover:bg-black hover:bg-opacity-10 transition-all duration-200 cursor-pointer"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            Events
+          </a>
+        </div>
+
+        <!-- Mobile contact button -->
+        <div class="mt-8 pt-6 border-t border-white border-opacity-20">
+          <a
+            (click)="navigateToContactAndClose()"
+            class="flex items-center justify-center gap-3 rounded-lg bg-[#EA0A2A] hover:bg-red-700 px-6 py-3 text-lg font-semibold text-white transition-colors duration-300 cursor-pointer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M7 17l9.2-9.2M17 17V7H7"></path>
+            </svg>
+            Get in Touch
+          </a>
+        </div>
+
+        <!-- Social media links -->
+        <div class="flex space-x-6 pt-8 items-center justify-center">
+          <a href="#" class="text-white hover:text-gray-300 transition-colors duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+            </svg>
+          </a>
+          <a href="#" class="text-white hover:text-gray-300 transition-colors duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+          </a>
+          <a href="#" class="text-white hover:text-gray-300 transition-colors duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
+            </svg>
+          </a>
+          <a href="#" class="text-white hover:text-gray-300 transition-colors duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
