@@ -1,6 +1,5 @@
 // header.component.ts
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { inject } from '@angular/core';
@@ -9,7 +8,7 @@ import { HostListener } from '@angular/core';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
@@ -26,7 +25,7 @@ export class HeaderComponent {
   }
 
   @HostListener('document:keydown.escape', ['$event'])
-  onEscapePress(event: KeyboardEvent) {
+  onEscapePress(event: Event) {
     if (this.isMobileMenuOpen) {
       this.closeMobileMenu();
     }
